@@ -60,3 +60,11 @@ end, { desc = "Toggle cursor line" })
 
 map("n", "H", "^", { desc = "Start of the line" })
 map("n", "L", "$", { desc = "End of the line" })
+
+-- Redo last change
+vim.keymap.set("n", "U", "<C-r>", { desc = "Redo last change" })
+
+-- Diagnostic float and quickfix
+vim.keymap.set("n", "<leader>xf", function()
+  vim.diagnostic.open_float({ border = "rounded" })
+end, { desc = "Open diagnostic float with rounded border" })
