@@ -84,6 +84,7 @@ return {
           },
         },
         vtsls = {},
+        dartls = {},
         emmet_language_server = {
           filetypes = {
             "html",
