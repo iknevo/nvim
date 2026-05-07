@@ -20,6 +20,8 @@ return {
         "html",
         "jsonls",
         "tailwindcss",
+        "basedpyright",
+        "ruff",
       },
     },
   },
@@ -85,6 +87,8 @@ return {
         },
         vtsls = {},
         dartls = {},
+        basedpyright = {},
+        ruff = {},
         emmet_language_server = {
           filetypes = {
             "html",
