@@ -41,8 +41,30 @@ return {
           hidden = false,
           ignored = false,
           exclude = { "node_modules" },
-          layout = { layout = { position = "left", width = 35 } },
+          -- layout = { layout = { position = "left", width = 35 } },
           -- exclude = { "node_modules", ".git", "dist", "build", ".next" },
+          layout = {
+            layout = {
+              box = "vertical",
+              width = 35,
+              position = "left",
+              {
+                win = "input",
+                height = 1,
+                border = "bottom",
+              },
+              {
+                win = "list",
+                border = "none",
+              },
+              {
+                win = "preview",
+                border = "top",
+                height = 0.4,
+                title = "{preview}",
+              },
+            },
+          },
         },
       },
       icons = {
