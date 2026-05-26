@@ -3,6 +3,7 @@ return {
     "ribru17/bamboo.nvim",
     priority = 1000,
     opts = {
+      style = "multiplex",
       lualine = {
         transparent = true,
       },
@@ -18,28 +19,8 @@ return {
 
 -- return {
 --   {
---     "slugbyte/lackluster.nvim",
+--     "kartikp10/noctis.nvim",
 --     priority = 1000,
---     config = function()
---       require("lackluster").setup({
---         disable_plugin = {},
---         tweak_ui = {
---           disable_undercurl = true,
---           enable_end_of_buffer = true,
---         },
---         tweak_syntax = {
---           comment = require("lackluster").color.gray6,
---           string = require("lackluster").color.orange,
---           string_escape = require("lackluster").color.gray1,
---         },
---         tweak_background = {
---           normal = "#000000",
---           telescope = "#000000",
---           menu = "#000000",
---           popup = "#000000",
---         },
---       })
---     end,
 --   },
 --   {
 --     "folke/snacks.nvim",
@@ -55,7 +36,7 @@ return {
 --   {
 --     "LazyVim/LazyVim",
 --     opts = {
---       colorscheme = "lackluster-mint",
+--       colorscheme = "noctis",
 --     },
 --   },
 -- }

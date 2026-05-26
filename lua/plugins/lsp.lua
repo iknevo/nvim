@@ -22,6 +22,7 @@ return {
         "tailwindcss",
         "basedpyright",
         "ruff",
+        "svelte",
       },
     },
   },
