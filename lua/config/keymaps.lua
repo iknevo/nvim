@@ -3,7 +3,7 @@ local del = vim.keymap.del
 
 local opts = { noremap = true, silent = true }
 
-map("i", "jk", "<Esc>")
+-- map("i", "jk", "<Esc>")
 
 -- Toggle spell check
 map("n", "<C-s>", ":set spell!<CR>", { desc = "Toggle spell check", silent = true })
