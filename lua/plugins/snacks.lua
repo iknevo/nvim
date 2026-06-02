@@ -40,7 +40,7 @@ return {
           -- auto_close = true,
           hidden = false,
           ignored = false,
-          exclude = { "node_modules" },
+          -- exclude = { "node_modules" },
           -- layout = { layout = { position = "left", width = 35 } },
           -- exclude = { "node_modules", ".git", "dist", "build", ".next" },
           layout = {
