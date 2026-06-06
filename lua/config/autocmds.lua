@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 vim.hl.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
+
 vim.diagnostic.config({
   virtual_text = {
     prefix = "●",
@@ -54,3 +55,16 @@ vim.diagnostic.config({
 --   group = highlight_group,
 --   pattern = "*",
 -- })
+
+-- disable relative line numbers in insert
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+  callback = function()
+    vim.opt.relativenumber = false
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+  callback = function()
+    vim.opt.relativenumber = true
+  end,
+})
