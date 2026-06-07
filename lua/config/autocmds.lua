@@ -56,15 +56,19 @@ vim.diagnostic.config({
 --   pattern = "*",
 -- })
 
--- disable relative line numbers in insert
+-- disable relative line numbers in insert (current window only)
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
   callback = function()
-    vim.opt.relativenumber = false
+    if vim.wo.number then
+      vim.wo.relativenumber = false
+    end
   end,
 })
 
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
   callback = function()
-    vim.opt.relativenumber = true
+    if vim.wo.number then
+      vim.wo.relativenumber = true
+    end
   end,
 })
