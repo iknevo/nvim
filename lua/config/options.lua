@@ -13,7 +13,7 @@ vim.o.smartindent = true
 
 vim.o.cursorline = false
 
--- vim.opt.scrolloff = 999
+vim.opt.scrolloff = 4
 
 vim.opt.virtualedit = "block"
 vim.opt.inccommand = "split"

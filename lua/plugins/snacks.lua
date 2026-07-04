@@ -16,6 +16,16 @@ return {
       end,
       desc = "Terminal (Root Dir)",
     },
+    {
+      "<leader>e",
+      function()
+        Snacks.explorer()
+      end,
+      desc = "File Explorer",
+    },
+    { "<leader>E", false },
+    { "<leader>fe", false },
+    { "<leader>fE", false },
   },
   opts = {
     image = {},

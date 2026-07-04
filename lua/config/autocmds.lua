@@ -72,3 +72,11 @@ vim.api.nvim_create_autocmd({ "InsertLeave" }, {
     end
   end,
 })
+
+local arg = vim.fn.argv(0)
+if type(arg) == "table" then
+  arg = arg[1]
+end
+if vim.fn.argc() == 1 and vim.fn.isdirectory(arg) == 1 then
+  vim.cmd("cd " .. vim.fn.fnameescape(arg))
+end
