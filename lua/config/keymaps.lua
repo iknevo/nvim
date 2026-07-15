@@ -71,20 +71,8 @@ map("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
 map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
 
--- lazygit
-if vim.fn.executable("lazygit") == 1 then
-	map("n", "<leader>gg", function()
-		Snacks.lazygit()
-	end, { desc = "Lazygit" })
-end
-
 -- quit
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
-
--- floating terminal
-map("n", "<leader>ft", function()
-	Snacks.terminal()
-end, { desc = "Terminal (cwd)" })
 
 -- map("i", "jk", "<Esc>")
 
