@@ -1,5 +1,5 @@
 local map = vim.keymap.set
-local opts = { noremap = true, silent = true }
+-- local opts = { noremap = true, silent = true }
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
@@ -105,10 +105,6 @@ map("n", "=", "<C-W>v", { desc = "Split Window Right", remap = true })
 -- better scrolling
 map("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down", remap = true })
 map("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up", remap = true })
-
--- Find and center
-vim.keymap.set("n", "n", "nzzzv", opts)
-vim.keymap.set("n", "N", "Nzzzv", opts)
 
 -- Duplicate line and comment the first line
 map("n", "ycc", '"yy" . v:count1 . "gcc\']p"', { remap = true, expr = true })

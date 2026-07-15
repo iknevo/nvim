@@ -158,7 +158,7 @@ return {
 	opts = function()
 		return {
 			indent = {
-				enabled = false,
+				enabled = true,
 			},
 			scroll = {
 				enabled = false,

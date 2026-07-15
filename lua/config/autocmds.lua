@@ -22,11 +22,7 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = augroup("highlight_yank"),
   callback = function()
-    if vim.fn.has("nvim-0.13") == 1 then
-      vim.hl.hl_op()
-    else
-      (vim.hl or vim.highlight).on_yank()
-    end
+    vim.hl.on_yank()
   end,
 })
 
@@ -112,13 +108,6 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = "*",
   callback = function()
     vim.opt_local.formatoptions:remove({ "r", "o" })
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "pug",
-  callback = function()
-    vim.api.nvim_set_hl(0, "@string.special.path.pug", { underline = false })
   end,
 })
 
