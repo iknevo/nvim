@@ -122,4 +122,3 @@ map("n", "U", "<C-r>", { desc = "Redo last change" })
 map("n", "Q", "<nop>")
 
 map("x", "u", "~", { desc = "Toggle case" })
-map("v", "u", "~", { desc = "Toggle case" })
