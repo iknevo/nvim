@@ -12,11 +12,8 @@ return {
     {
       mode = { "v", "n" },
       "<leader>m",
-      function()
-        require("which-key").show({ keys = "<leader>m" })
-        vim.cmd("MCstart")
-      end,
-      desc = "Multi-cursor",
+      "<cmd>MCstart<cr>",
+      desc = "Multicursors",
     },
   },
 }
