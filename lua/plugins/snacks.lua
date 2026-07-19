@@ -197,7 +197,6 @@ return {
       },
       image = {},
       input = {},
-      statuscolumn = {},
       explorer = {
         enabled = true,
         replace_netrw = true,
