@@ -195,7 +195,6 @@ return {
       scroll = {
         enabled = false,
       },
-      image = {},
       input = {},
       explorer = {
         enabled = true,
