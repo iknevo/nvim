@@ -69,6 +69,7 @@ vim.opt.undofile = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.writebackup = false
+vim.opt.autoread = true
 
 vim.opt.virtualedit = "block"
 vim.wo.wrap = true
