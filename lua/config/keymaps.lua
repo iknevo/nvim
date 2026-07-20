@@ -32,7 +32,10 @@ map(
 )
 
 -- Clear search and stop snippet on escape
-map({ "n", "x" }, "<Esc>", ":nohlsearch<CR>", { desc = "Clear search highlights", silent = true })
+map("n", "<Esc>", "<Cmd>nohlsearch<CR>", {
+  desc = "Clear search highlights",
+  silent = true,
+})
 
 map("n", "n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
 map("x", "n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" })
