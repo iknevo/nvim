@@ -3,7 +3,6 @@ return {
   ft = "json",
   dependencies = {
     "MunifTanjim/nui.nvim",
-    "nvim-telescope/telescope.nvim",
   },
   config = function()
     local package_info = require("package-info")

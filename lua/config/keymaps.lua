@@ -55,10 +55,11 @@ map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Commen
 
 -- quickfix list
 map("n", "<leader>xq", function()
-  local success, err =
-    pcall(vim.fn.getqflist({ winid = 0 }).winid ~= 0 and vim.cmd.cclose or vim.cmd.copen)
-  if not success and err then
-    vim.notify(err, vim.log.levels.ERROR)
+  local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
+  if qf_winid ~= 0 then
+    vim.cmd.cclose()
+  else
+    vim.cmd.copen()
   end
 end, { desc = "Quickfix List" })
 map("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })

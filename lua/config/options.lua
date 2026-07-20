@@ -28,41 +28,18 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
 vim.diagnostic.config({
+  -- virtual_text = true,
+  -- virtual_lines = false,
   signs = {
     text = {
-      [vim.diagnostic.severity.ERROR] = " ",
+      [vim.diagnostic.severity.ERROR] = " ",
       [vim.diagnostic.severity.WARN] = " ",
-      [vim.diagnostic.severity.INFO] = " ",
-      [vim.diagnostic.severity.HINT] = "󰌵 ",
+      [vim.diagnostic.severity.INFO] = "󰋼 ",
+      [vim.diagnostic.severity.HINT] = " ",
     },
   },
-  virtual_text = {
-    prefix = function(diagnostic)
-      local icons = {
-        [vim.diagnostic.severity.ERROR] = " ",
-        [vim.diagnostic.severity.WARN] = " ",
-        [vim.diagnostic.severity.INFO] = " ",
-        [vim.diagnostic.severity.HINT] = "󰌵 ",
-      }
-      return icons[diagnostic.severity]
-    end,
-    format = function(diagnostic)
-      return (diagnostic.message:gsub("^%[.-%]%s*", ""))
-    end,
-  },
-  virtual_lines = false,
-  underline = false,
-  update_in_insert = true,
-  float = {
-    source = true,
-  },
-  on_ready = function()
-    vim.cmd("highlight DiagnosticVirtualText guibg=NONE")
-  end,
+  severity_sort = true,
 })
-
--- vim.opt.pumblend = 10
--- vim.opt.pumheight = 10
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2

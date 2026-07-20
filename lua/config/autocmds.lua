@@ -187,9 +187,11 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+  group = augroup("lsp_references"),
   callback = vim.lsp.buf.document_highlight,
 })
 
 vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+  group = augroup("lsp_references"),
   callback = vim.lsp.buf.clear_references,
 })
