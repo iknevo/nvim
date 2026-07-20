@@ -94,7 +94,7 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 
 vim.opt.virtualedit = "block"
-vim.wo.wrap = false
+vim.wo.wrap = true
 vim.opt.linebreak = true
 vim.opt.completeopt = "menu,menuone,noinsert"
 vim.opt.iskeyword:remove("_")

@@ -40,7 +40,7 @@ return {
         adaptive_size = false,
         side = "left",
         preserve_window_proportions = true,
-        width = 40,
+        width = 35,
       },
       renderer = {
         full_name = false,

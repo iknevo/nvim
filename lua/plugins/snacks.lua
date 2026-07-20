@@ -124,7 +124,6 @@ return {
       end,
       desc = "Undotree",
     },
-    -- buffer
     {
       "<leader>bd",
       function()
@@ -194,6 +193,10 @@ return {
       input = { enabled = true },
       explorer = { enabled = true, replace_netrw = true },
       picker = {
+        layout = {
+          preset = "default",
+          cycle = false,
+        },
         sources = {
           files = {
             hidden = false,
