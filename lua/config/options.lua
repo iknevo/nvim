@@ -108,8 +108,3 @@ vim.opt.smoothscroll = true
 vim.opt.spelllang = { "en" }
 
 vim.opt.shortmess:append("I")
-
-vim.api.nvim_set_hl(0, "htmlLink", { underline = false })
-vim.api.nvim_set_hl(0, "LspReferenceWrite", { underline = true })
-vim.api.nvim_set_hl(0, "LspReferenceText", { underline = true })
-vim.api.nvim_set_hl(0, "LspReferenceRead", { underline = true })
