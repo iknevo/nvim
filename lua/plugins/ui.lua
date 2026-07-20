@@ -21,7 +21,7 @@ return {
   },
   {
     "b0o/incline.nvim",
-    enabled = true,
+    enabled = false,
     dependencies = { { "nvim-mini/mini.icons", opts = {} } },
     config = function()
       require("incline").setup({
