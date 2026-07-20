@@ -155,6 +155,8 @@ return {
           map("n", "gy", function()
             Snacks.picker.lsp_type_definitions()
           end, "Goto T[y]pe Definition", "typeDefinitionProvider")
+          map("n", "<leader>ca", vim.lsp.buf.code_action, "Code Action", "codeActionProvider")
+          map("v", "<leader>ca", vim.lsp.buf.code_action, "Code Action", "codeActionProvider")
         end,
       })
     end,
