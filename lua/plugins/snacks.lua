@@ -189,17 +189,10 @@ return {
   end,
   opts = function()
     return {
-      indent = {
-        enabled = false,
-      },
-      scroll = {
-        enabled = false,
-      },
-      input = {},
-      explorer = {
-        enabled = true,
-        replace_netrw = true,
-      },
+      indent = { enabled = false },
+      scroll = { enabled = false },
+      input = { enabled = true },
+      explorer = { enabled = true, replace_netrw = true },
       picker = {
         sources = {
           files = {
@@ -213,10 +206,10 @@ return {
             exclude = { "node_modules", ".git", "dist", "build", ".next" },
           },
           explorer = {
-            show__modified = true,
             trash = true,
             hidden = false,
             ignored = false,
+            -- auto_close = true,
             format = function(item, picker)
               local fmt = require("snacks.picker.format")
               local ret = fmt.file(item, picker)
