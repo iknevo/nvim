@@ -104,51 +104,10 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("json_conceal"),
-  pattern = { "json", "jsonc", "json5" },
-  callback = function()
-    vim.opt_local.conceallevel = 0
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
   group = augroup("formatoptions"),
   pattern = "*",
   callback = function()
     vim.opt_local.formatoptions:remove({ "r", "o" })
-  end,
-})
-
-vim.api.nvim_create_autocmd("InsertEnter", {
-  group = augroup("relative_number_insert"),
-  callback = function()
-    if vim.wo.number then
-      vim.wo.relativenumber = false
-    end
-  end,
-})
-
-vim.api.nvim_create_autocmd("InsertLeave", {
-  group = augroup("relative_number_insert"),
-  callback = function()
-    if vim.wo.number then
-      vim.wo.relativenumber = true
-    end
-  end,
-})
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-  group = augroup("html_link"),
-  callback = function()
-    vim.cmd("highlight htmlLink gui=NONE cterm=NONE")
-  end,
-})
-
-vim.api.nvim_create_autocmd("ModeChanged", {
-  group = augroup("clear_highlights"),
-  pattern = { "[vV\x16]*:n", "[oO]*:n" },
-  callback = function()
-    vim.cmd("nohlsearch")
   end,
 })
 
@@ -207,5 +166,30 @@ vim.api.nvim_create_autocmd("LspAttach", {
       buffer = event.buf,
       callback = vim.lsp.buf.clear_references,
     })
+
+    vim.api.nvim_create_autocmd({ "BufLeave", "InsertEnter" }, {
+      group = lsp_references_group,
+      buffer = event.buf,
+      callback = vim.lsp.buf.clear_references,
+    })
+  end,
+})
+
+local relative_number_group = augroup("relative_number_insert")
+vim.api.nvim_create_autocmd("InsertEnter", {
+  group = relative_number_group,
+  callback = function()
+    if vim.wo.number then
+      vim.wo.relativenumber = false
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("InsertLeave", {
+  group = relative_number_group,
+  callback = function()
+    if vim.wo.number then
+      vim.wo.relativenumber = true
+    end
   end,
 })
