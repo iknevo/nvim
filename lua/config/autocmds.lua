@@ -187,12 +187,25 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 })
 
 local lsp_references_group = augroup("lsp_references")
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-  group = lsp_references_group,
-  callback = vim.lsp.buf.document_highlight,
-})
 
-vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-  group = lsp_references_group,
-  callback = vim.lsp.buf.clear_references,
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(event)
+    local client = vim.lsp.get_client_by_id(event.data.client_id)
+
+    if not client or not client:supports_method("textDocument/documentHighlight") then
+      return
+    end
+
+    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+      group = lsp_references_group,
+      buffer = event.buf,
+      callback = vim.lsp.buf.document_highlight,
+    })
+
+    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+      group = lsp_references_group,
+      buffer = event.buf,
+      callback = vim.lsp.buf.clear_references,
+    })
+  end,
 })
