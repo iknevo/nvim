@@ -114,27 +114,22 @@ vim.api.nvim_create_autocmd("FileType", {
 local function snacks_git_highlights()
   vim.api.nvim_set_hl(0, "SnacksPickerGitStatusAdded", {
     fg = "#8fb573",
-    bold = true,
   })
 
   vim.api.nvim_set_hl(0, "SnacksPickerGitStatusModified", {
     fg = "#7daea3",
-    bold = true,
   })
 
   vim.api.nvim_set_hl(0, "SnacksPickerGitStatusUntracked", {
     fg = "#d8a657",
-    bold = true,
   })
 
   vim.api.nvim_set_hl(0, "SnacksPickerGitStatusDeleted", {
     fg = "#e67e80",
-    bold = true,
   })
 
   vim.api.nvim_set_hl(0, "SnacksPickerGitStatusIgnored", {
     fg = "#7c8377",
-    italic = true,
   })
 end
 
