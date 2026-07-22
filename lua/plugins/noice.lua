@@ -52,7 +52,18 @@ return {
       lsp_doc_border = true,
     },
     lsp = {
-      progress = { enabled = true, view = "mini" },
+      progress = {
+        enabled = true,
+        view = "mini",
+      },
+
+      hover = {
+        enabled = false,
+      },
+
+      signature = {
+        enabled = false,
+      },
     },
     routes = {
       {
