@@ -11,6 +11,10 @@ return {
   },
 
   opts = {
+    cmdline = {
+      enabled = false,
+    },
+
     snippets = {
       preset = "luasnip",
     },
@@ -33,7 +37,7 @@ return {
 
       ["<C-u>"] = { "scroll_documentation_up", "fallback" },
       ["<C-d>"] = { "scroll_documentation_down", "fallback" },
-      ["<C-i>"] = {
+      ["<C-s>"] = {
         function(cmp)
           if cmp.is_signature_visible() then
             cmp.hide_signature()
