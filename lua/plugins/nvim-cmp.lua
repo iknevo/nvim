@@ -20,8 +20,12 @@ return {
     require("cmp_git").setup({})
 
     cmp.setup({
+      snippet = {
+        expand = function(args)
+          require("luasnip").lsp_expand(args.body)
+        end,
+      },
       formatting = {
-
         fields = { "abbr", "kind", "menu" },
         format = lspkind.cmp_format({
           maxwidth = 50,
