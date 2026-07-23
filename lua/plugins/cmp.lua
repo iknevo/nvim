@@ -67,6 +67,8 @@ return {
         auto_show_delay_ms = 100,
       },
 
+      ghost_text = { enabled = true },
+
       menu = {
         auto_show = true,
         border = "rounded",
@@ -110,9 +112,21 @@ return {
 
       providers = {
         lsp = {
+          score_offset = 5,
+          min_keyword_length = 1,
           opts = {
             tailwind_color_icon = "󰝤",
           },
+        },
+
+        snippets = {
+          score_offset = 10,
+          min_keyword_length = 2,
+        },
+
+        buffer = {
+          score_offset = -5,
+          min_keyword_length = 3,
         },
 
         lazydev = {
