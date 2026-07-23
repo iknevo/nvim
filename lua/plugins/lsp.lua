@@ -13,7 +13,6 @@ return {
         "lua_ls",
         "vtsls",
         "cssls",
-        "emmet_language_server",
         "eslint",
         "html",
         "jsonls",
@@ -96,26 +95,6 @@ return {
         dartls = {},
         basedpyright = {},
         ruff = {},
-        emmet_language_server = {
-          filetypes = {
-            "html",
-            "css",
-            "scss",
-            "javascript",
-            "javascriptreact",
-            "typescript",
-            "typescriptreact",
-            "svelte",
-            "vue",
-          },
-          init_options = {
-            html = {
-              options = {
-                ["bem.enabled"] = true,
-              },
-            },
-          },
-        },
       }
 
       for name, opts in pairs(servers) do
