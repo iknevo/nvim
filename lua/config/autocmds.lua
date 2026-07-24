@@ -140,6 +140,20 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   callback = snacks_git_highlights,
 })
 
+local function custom_highlights()
+  local normal = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
+  vim.api.nvim_set_hl(0, "htmlLink", {
+    fg = normal.fg,
+    underline = false,
+  })
+end
+custom_highlights()
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+  group = augroup("custom_highlights"),
+  callback = custom_highlights,
+})
+
 local lsp_references_group = augroup("lsp_references")
 
 vim.api.nvim_create_autocmd("LspAttach", {
