@@ -212,7 +212,7 @@ return {
             trash = true,
             hidden = false,
             ignored = false,
-            -- auto_close = true,
+            auto_close = true,
             format = function(item, picker)
               local fmt = require("snacks.picker.format")
               local ret = fmt.file(item, picker)
@@ -243,7 +243,7 @@ return {
               layout = {
                 box = "vertical",
                 width = 35,
-                position = "left",
+                position = "right",
                 {
                   win = "input",
                   height = 1,
