@@ -58,15 +58,16 @@ map("n", "gcO", "O<esc>Vcx<esc><cmd>normal gcc<cr>fxa<bs>", { desc = "Add Commen
 
 -- quickfix list
 map("n", "<leader>xq", function()
-  local qf_winid = vim.fn.getqflist({ winid = 0 }).winid
-  if qf_winid ~= 0 then
-    vim.cmd.cclose()
-  else
-    vim.cmd.copen()
-  end
-end, { desc = "Quickfix List" })
-map("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
-map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
+  require("quicker").toggle()
+end, { desc = "Toggle Quickfix" })
+
+map("n", "]q", function()
+  pcall(vim.cmd.cnext)
+end, { desc = "Next Quickfix" })
+
+map("n", "[q", function()
+  pcall(vim.cmd.cprev)
+end, { desc = "Previous Quickfix" })
 
 -- diagnostic
 local diagnostic_goto = function(next, severity)

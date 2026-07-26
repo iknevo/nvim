@@ -202,3 +202,31 @@ vim.api.nvim_create_autocmd("InsertLeave", {
     end
   end,
 })
+
+local function remove_qf_item()
+  local qf_list = vim.fn.getqflist()
+  local idx = vim.fn.line(".")
+
+  table.remove(qf_list, idx)
+  vim.fn.setqflist(qf_list, "r")
+
+  if #qf_list == 0 then
+    vim.cmd.cclose()
+    return
+  end
+
+  vim.cmd.cc(math.min(idx, #qf_list))
+end
+
+vim.api.nvim_create_user_command("RemoveQFItem", remove_qf_item, {})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "qf",
+  callback = function(args)
+    vim.keymap.set("n", "dd", remove_qf_item, {
+      buffer = args.buf,
+      silent = true,
+      desc = "Remove quickfix item",
+    })
+  end,
+})
