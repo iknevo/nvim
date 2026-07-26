@@ -5,6 +5,7 @@ return {
   opts = {
     preset = "helix",
     defaults = {},
+    delay = 500,
     spec = {
       {
         mode = { "n", "x" },
