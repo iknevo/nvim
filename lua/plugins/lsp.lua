@@ -29,10 +29,11 @@ return {
       "antosha417/nvim-lsp-file-operations",
       "xzbdmw/colorful-menu.nvim",
       "saghen/blink.cmp",
+      "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
       local capabilities =
-        vim.tbl_deep_extend("force", require("blink.cmp").get_lsp_capabilities(), {
+        vim.tbl_deep_extend("force", require("cmp_nvim_lsp").default_capabilities(), {
           workspace = {
             fileOperations = {
               didRename = true,
