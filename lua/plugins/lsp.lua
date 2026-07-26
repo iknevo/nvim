@@ -28,7 +28,6 @@ return {
     dependencies = {
       "antosha417/nvim-lsp-file-operations",
       "xzbdmw/colorful-menu.nvim",
-      "saghen/blink.cmp",
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
