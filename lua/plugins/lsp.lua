@@ -28,18 +28,25 @@ return {
     dependencies = {
       "antosha417/nvim-lsp-file-operations",
       "xzbdmw/colorful-menu.nvim",
-      "hrsh7th/cmp-nvim-lsp",
+      "saghen/blink.cmp",
     },
     config = function()
-      local capabilities =
-        vim.tbl_deep_extend("force", require("cmp_nvim_lsp").default_capabilities(), {
-          workspace = {
-            fileOperations = {
-              didRename = true,
-              willRename = true,
-            },
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+      capabilities = vim.tbl_deep_extend(
+        "force",
+        capabilities,
+        require("blink.cmp").get_lsp_capabilities({}, false)
+      )
+
+      capabilities = vim.tbl_deep_extend("force", capabilities, {
+        textDocument = {
+          foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
           },
-        })
+        },
+      })
 
       vim.lsp.config("*", {
         capabilities = capabilities,
