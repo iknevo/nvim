@@ -115,46 +115,20 @@ return {
 
       providers = {
         lsp = {
-          name = "lsp",
-          score_offset = 90,
-          enabled = true,
-          module = "blink.cmp.sources.lsp",
-          kind = "LSP",
-          min_keyword_length = 0,
+          score_offset = 5,
+          min_keyword_length = 1,
           opts = {
             tailwind_color_icon = "󰝤",
           },
         },
-        path = {
-          name = "Path",
-          module = "blink.cmp.sources.path",
-          score_offset = 25,
-          fallbacks = { "snippets", "buffer" },
-          min_keyword_length = 0,
-          opts = {
-            trailing_slash = false,
-            label_trailing_slash = true,
-            get_cwd = function(context)
-              return vim.fn.expand(("#%d:p:h"):format(context.bufnr))
-            end,
-            show_hidden_files_by_default = true,
-          },
-        },
-
         snippets = {
           score_offset = 10,
-          min_keyword_length = 0,
-        },
-
-        buffer = {
-          name = "Buffer",
-          enabled = true,
-          max_items = 3,
-          module = "blink.cmp.sources.buffer",
           min_keyword_length = 2,
-          score_offset = 15,
         },
-
+        buffer = {
+          score_offset = -5,
+          min_keyword_length = 3,
+        },
         lazydev = {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
