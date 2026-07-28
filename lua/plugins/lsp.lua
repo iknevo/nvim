@@ -20,7 +20,6 @@ return {
         "basedpyright",
         "ruff",
         "svelte",
-        "emmet_language_server",
       },
     },
   },
@@ -79,39 +78,6 @@ return {
         },
 
         tailwindcss = {},
-        -- tailwindcss = {
-        --   filetypes = {
-        --     "html",
-        --     "css",
-        --     "scss",
-        --     "javascript",
-        --     "javascriptreact",
-        --     "typescript",
-        --     "typescriptreact",
-        --     "svelte",
-        --     "vue",
-        --   },
-        --   settings = {
-        --     tailwindCSS = {
-        --       experimental = {
-        --         classRegex = {
-        --           'className\\s*=\\s*"([^"]*)"',
-        --         },
-        --       },
-        --     },
-        --   },
-        -- },
-        emmet_language_server = {
-          filetypes = {
-            "html",
-            "css",
-            "scss",
-            "javascriptreact",
-            "typescriptreact",
-            "svelte",
-            "vue",
-          },
-        },
         vtsls = {},
         dartls = {},
         basedpyright = {},
