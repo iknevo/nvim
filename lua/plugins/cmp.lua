@@ -44,10 +44,6 @@ return {
 
     completion = {
       trigger = {
-        trigger = {
-          show_on_insert_on_trigger_character = false,
-          show_on_accept_on_trigger_character = false,
-        },
         show_on_blocked_trigger_characters = {
           " ",
           "\n",
@@ -123,7 +119,7 @@ return {
       providers = {
         lsp = {
           score_offset = 5,
-          min_keyword_length = 1,
+          min_keyword_length = 0,
           opts = {
             tailwind_color_icon = "󰝤",
           },
