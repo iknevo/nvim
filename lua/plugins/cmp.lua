@@ -44,6 +44,10 @@ return {
 
     completion = {
       trigger = {
+        trigger = {
+          show_on_insert_on_trigger_character = false,
+          show_on_accept_on_trigger_character = false,
+        },
         show_on_blocked_trigger_characters = {
           " ",
           "\n",
@@ -51,7 +55,10 @@ return {
           "!",
           "&",
           "|",
+          "{",
           "(",
+          "}",
+          ")",
         },
       },
       list = {
@@ -127,7 +134,7 @@ return {
         },
         buffer = {
           score_offset = -5,
-          min_keyword_length = 3,
+          min_keyword_length = 4,
         },
         lazydev = {
           name = "LazyDev",
@@ -140,6 +147,7 @@ return {
     fuzzy = {
       implementation = "prefer_rust_with_warning",
     },
+    opts_extend = { "sources.default" },
   },
 
   config = function(_, opts)
@@ -166,20 +174,6 @@ return {
     }
 
     require("blink.cmp").setup(opts)
-
-    -- vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "BlinkCmpDocSeparator", { bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { bg = "NONE" })
-    --
-    -- vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", {
-    --   link = "PmenuSel",
-    -- })
-    --
-    -- vim.api.nvim_set_hl(0, "BlinkCmpLabelDescription", {
-    --   link = "Comment",
-    -- })
 
     vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "NONE" })
     vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = "#6e6a86", bg = "NONE" })
