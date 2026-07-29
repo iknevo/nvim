@@ -143,8 +143,9 @@ return {
     fuzzy = {
       implementation = "prefer_rust_with_warning",
     },
-    opts_extend = { "sources.default" },
   },
+
+  opts_extend = { "sources.default" },
 
   config = function(_, opts)
     require("luasnip.loaders.from_vscode").lazy_load()
