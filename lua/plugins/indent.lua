@@ -1,10 +1,11 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
-  enabled = true,
+  enabled = false,
   main = "ibl",
   opts = {
     indent = {
-      char = "▏",
+      -- char = "▏",
+      char = "│",
     },
     scope = {
       show_start = false,
