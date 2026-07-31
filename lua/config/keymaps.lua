@@ -17,20 +17,6 @@ map("n", "<A-j>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 map("n", "<A-k>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 map("n", "<A-l>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 
--- Move Lines
-map(
-  "v",
-  "<C-j>",
-  ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv",
-  { desc = "Move Down", silent = true }
-)
-map(
-  "v",
-  "<C-k>",
-  ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv",
-  { desc = "Move Up", silent = true }
-)
-
 -- Clear search and stop snippet on escape
 map("n", "<Esc>", "<Cmd>nohlsearch<CR>", {
   desc = "Clear search highlights",
@@ -44,6 +30,7 @@ map("n", "N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search R
 map("x", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 map("o", "N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" })
 
+-- undo break points
 map("i", ",", ",<c-g>u")
 map("i", ".", ".<c-g>u")
 map("i", ";", ";<c-g>u")
@@ -92,8 +79,11 @@ map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- map("i", "jk", "<Esc>")
 
+-- paste without yank
+map("x", "p", '"_dP', { desc = "Paste Without Yank" })
+
 -- Toggle spell check
-map("n", "<C-s>", ":set spell!<CR>", { desc = "Toggle spell check", silent = true })
+map("n", "<C-s>", "<cmd>set spell!<cr>", { desc = "Toggle spell check", silent = true })
 map("i", "<C-s>", "<C-O>:set spell!<CR>", { desc = "Toggle spell check", silent = true })
 
 -- Spell mutations
@@ -106,9 +96,15 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "-", "<C-W>s", { desc = "Split Window Below", remap = true })
 map("n", "=", "<C-W>v", { desc = "Split Window Right", remap = true })
 
+map("n", "<leader>we", "<C-w>=", { desc = "Equalize Windows" })
+map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window" })
+map("n", "<leader>wo", "<C-W>o", { desc = "Only Window" })
+
 -- better scrolling
 map("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down", remap = true })
 map("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up", remap = true })
+
+map("n", "J", "mzJ`z", { desc = "Join Lines" })
 
 -- Duplicate line and comment the first line
 map("n", "ycc", '"yy" . v:count1 . "gcc\']p"', { remap = true, expr = true })
@@ -127,3 +123,11 @@ map("n", "U", "<C-r>", { desc = "Redo last change" })
 map("n", "Q", "<nop>")
 
 map("x", "u", "~", { desc = "Toggle case" })
+
+map("n", "<leader>uw", function()
+  vim.wo.wrap = not vim.wo.wrap
+end, { desc = "Toggle Wrap" })
+
+map("n", "<leader>ud", function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { desc = "Toggle Diagnostics" })

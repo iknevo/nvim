@@ -15,10 +15,10 @@ vim.opt.showmode = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.cursorline = false
+-- vim.opt.guicursor = ""
 vim.opt.signcolumn = "yes"
 vim.opt.termguicolors = true
 vim.opt.linespace = 4
-
 vim.opt.fillchars = {
   diff = "╱",
   eob = " ",
