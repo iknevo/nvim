@@ -1,6 +1,6 @@
 local large = {
-  width = 0.95,
-  height = 0.95,
+  width = 0.99,
+  height = 0.99,
 }
 return {
   "folke/snacks.nvim",
