@@ -1,7 +1,3 @@
-local large = {
-  width = 0.99,
-  height = 0.99,
-}
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -193,7 +189,10 @@ return {
   opts = function()
     return {
       styles = {
-        lazygit = large,
+        lazygit = {
+          width = 0,
+          height = 0,
+        },
       },
       indent = { enabled = false },
       scroll = { enabled = false },
