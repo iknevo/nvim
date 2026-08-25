@@ -201,7 +201,7 @@ return {
       picker = {
         layout = {
           preset = "default",
-          cycle = false,
+          -- cycle = false,
         },
         sources = {
           files = {
