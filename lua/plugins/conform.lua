@@ -31,6 +31,7 @@ return {
         scss = { "prettier" },
         vue = { "prettier" },
         yaml = { "prettier" },
+        rust = { "rustfmt" },
       },
     },
   },
