@@ -197,6 +197,48 @@ return {
       indent = { enabled = false },
       scroll = { enabled = false },
       input = { enabled = true },
+      terminal = {
+        win = {
+          keys = {
+            ["<C-h>"] = {
+              function()
+                vim.cmd("stopinsert")
+                vim.cmd("wincmd h")
+              end,
+              mode = "t",
+            },
+
+            ["<C-j>"] = {
+              function()
+                vim.cmd("stopinsert")
+                vim.cmd("wincmd j")
+              end,
+              mode = "t",
+            },
+
+            ["<C-k>"] = {
+              function()
+                vim.cmd("stopinsert")
+                vim.cmd("wincmd k")
+              end,
+              mode = "t",
+            },
+
+            ["<C-l>"] = {
+              function()
+                vim.cmd("stopinsert")
+                vim.cmd("wincmd l")
+              end,
+              mode = "t",
+            },
+
+            ["<C-q>"] = {
+              "hide",
+              mode = "t",
+            },
+          },
+        },
+      },
       explorer = { enabled = true, replace_netrw = true },
       picker = {
         layout = {
