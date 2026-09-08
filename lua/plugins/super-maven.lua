@@ -6,7 +6,6 @@ return {
         accept_suggestion = "<C-l>",
         clear_suggestion = "<C-h>",
         accept_word = "<C-j>",
-        next_word = "<C-k>",
       },
       -- color = {
       --   suggestion_color = "#ffffff",
