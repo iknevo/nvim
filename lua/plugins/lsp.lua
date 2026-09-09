@@ -26,7 +26,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "antosha417/nvim-lsp-file-operations",
       "xzbdmw/colorful-menu.nvim",
       "saghen/blink.cmp",
     },
@@ -90,8 +89,6 @@ return {
         end
         vim.lsp.enable(name)
       end
-
-      require("lsp-file-operations").setup()
 
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("my.lsp.keymaps", { clear = true }),

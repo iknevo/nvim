@@ -1,7 +1,7 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
   enabled = true,
-  dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" },
+  dependencies = { "nvim-treesitter/nvim-treesitter" },
   config = function()
     require("render-markdown").setup({
       preset = "none", -- Avoids default styles that may include backgrounds
