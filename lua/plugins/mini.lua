@@ -28,20 +28,7 @@ return {
   },
   {
     "nvim-mini/mini.surround",
-    keys = function()
-      local mappings = {
-        { "gsa", desc = "Add Surrounding", mode = { "n", "x" } },
-        { "gsd", desc = "Delete Surrounding" },
-        { "gsf", desc = "Find Right Surrounding" },
-        { "gsF", desc = "Find Left Surrounding" },
-        { "gsh", desc = "Highlight Surrounding" },
-        { "gsr", desc = "Replace Surrounding" },
-        { "gsn", desc = "Update `MiniSurround.config.n_lines`" },
-      }
-      return vim.tbl_filter(function(m)
-        return m[1] and #m[1] > 0
-      end, mappings)
-    end,
+    event = "VeryLazy",
     opts = {
       mappings = {
         add = "gsa",
@@ -50,11 +37,10 @@ return {
         find_left = "gsF",
         highlight = "gsh",
         replace = "gsr",
-        update_n_lines = "gsn",
       },
     },
   },
-  { "nvim-mini/mini.ai", version = "*" },
+  { "nvim-mini/mini.ai", version = "*", opts = {} },
   {
     "nvim-mini/mini.icons",
     version = "*",
