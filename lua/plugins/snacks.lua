@@ -187,6 +187,32 @@ return {
     })
   end,
   opts = function()
+    local git_list = {
+      layout = {
+        layout = {
+          box = "vertical",
+          width = 0,
+          height = 0,
+          { win = "input", height = 1, border = "bottom" },
+          { win = "list", border = "none" },
+        },
+      },
+    }
+    local git_pane = {
+      layout = {
+        layout = {
+          box = "horizontal",
+          width = 0,
+          height = 0,
+          {
+            box = "vertical",
+            { win = "input", height = 1, border = "bottom" },
+            { win = "list", border = "none" },
+          },
+          { win = "preview", title = "{preview}", width = 0.5, border = "left" },
+        },
+      },
+    }
     return {
       styles = {
         lazygit = {
@@ -246,6 +272,21 @@ return {
           -- cycle = false,
         },
         sources = {
+          gh_issue = git_list,
+          gh_pr = git_list,
+          gh_actions = git_list,
+          gh_labels = git_list,
+          gh_reactions = git_list,
+          gh_diff = git_pane,
+          git_branches = git_pane,
+          git_files = git_pane,
+          git_grep = git_pane,
+          git_log = git_pane,
+          git_log_file = git_pane,
+          git_log_line = git_pane,
+          git_stash = git_pane,
+          git_status = git_pane,
+          git_diff = git_pane,
           files = {
             hidden = false,
             ignored = false,
