@@ -168,6 +168,17 @@ return {
   config = function(_, opts)
     require("snacks").setup(opts)
 
+    local win = require("snacks.win")
+    local dim = win.dim
+    function win:dim(parent, ...)
+      local d = dim(self, parent, ...)
+      d.height = math.floor(d.height + 0.5)
+      d.width = math.floor(d.width + 0.5)
+      d.row = math.floor(d.row + 0.5)
+      d.col = math.floor(d.col + 0.5)
+      return d
+    end
+
     local group = vim.api.nvim_create_augroup("SnacksExplorerBufModified", { clear = true })
     local refresh = require("snacks.util").debounce(function()
       for _, picker in
