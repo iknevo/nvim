@@ -172,13 +172,13 @@ return {
 
     require("blink.cmp").setup(opts)
 
-    vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "NONE" })
-    vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = "#6e6a86", bg = "NONE" })
-    vim.api.nvim_set_hl(0, "BlinkCmpDocSeparator", { bg = "NONE", fg = "#6e6a86" })
-    vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { fg = "#6e6a86", bg = "NONE" })
-    vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = "#6e6a86", bg = "NONE" })
-    vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#242424" })
-    vim.api.nvim_set_hl(0, "BlinkCmpLabel", { fg = "#cecacd" })
-    vim.api.nvim_set_hl(0, "BlinkCmpLabelDescription", { fg = "#6e6a86" })
+    -- vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "NONE" })
+    -- vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = "#6e6a86", bg = "NONE" })
+    -- vim.api.nvim_set_hl(0, "BlinkCmpDocSeparator", { bg = "NONE", fg = "#6e6a86" })
+    -- vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { fg = "#6e6a86", bg = "NONE" })
+    -- vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = "#6e6a86", bg = "NONE" })
+    -- vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#242424" })
+    -- vim.api.nvim_set_hl(0, "BlinkCmpLabel", { fg = "#cecacd" })
+    -- vim.api.nvim_set_hl(0, "BlinkCmpLabelDescription", { fg = "#6e6a86" })
   end,
 }
