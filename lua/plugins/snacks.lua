@@ -308,6 +308,17 @@ return {
             ignored = true,
             exclude = { "node_modules", ".git", "dist", "build", ".next" },
           },
+          todo_comments = {
+            on_show = function(picker)
+              picker.input.statuscolumn = function()
+                return string.format(
+                  "%%#%s#%s%%*",
+                  "SnacksPickerPrompt",
+                  picker.opts.prompt or "❯ "
+                )
+              end
+            end,
+          },
           explorer = {
             trash = true,
             hidden = false,
