@@ -324,6 +324,13 @@ return {
             hidden = false,
             ignored = false,
             auto_close = true,
+            -- icons = {
+            --   tree = {
+            --     vertical = "  ",
+            --     middle = "  ",
+            --     last = "  ",
+            --   },
+            -- },
             format = function(item, picker)
               local fmt = require("snacks.picker.format")
               local ret = fmt.file(item, picker)
