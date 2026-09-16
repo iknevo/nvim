@@ -131,3 +131,10 @@ end, { desc = "Toggle Wrap" })
 map("n", "<leader>ud", function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { desc = "Toggle Diagnostics" })
+
+-- toggle line numbers
+vim.keymap.set("n", "<leader>ul", function()
+  local enabled = vim.opt.number:get()
+  vim.opt.number = not enabled
+  vim.opt.relativenumber = not enabled
+end, { desc = "Toggle line numbers" })
