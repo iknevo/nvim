@@ -107,6 +107,7 @@ return {
   {
     "nvim-mini/mini.indentscope",
     version = "*",
+    enabled = false,
     config = function()
       require("mini.indentscope").setup({
         draw = {
