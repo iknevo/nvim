@@ -10,6 +10,7 @@ end
 
 local groups = {
   -- transparent background
+  "CursorLine",
   "Normal",
   "NormalFloat",
   "FloatBorder",
