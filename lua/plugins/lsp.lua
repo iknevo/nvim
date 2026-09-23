@@ -20,6 +20,7 @@ return {
         "basedpyright",
         "ruff",
         "svelte",
+        "oxlint",
       },
     },
   },
@@ -53,6 +54,10 @@ return {
 
       local servers = {
         lua_ls = {},
+        svelte = {},
+        oxlint = {
+          cmd = { "bunx", "oxlint", "--lsp" },
+        },
         cssls = {
           settings = {
             css = {
