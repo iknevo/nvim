@@ -164,6 +164,13 @@ return {
       end,
       desc = "Terminal",
     },
+    {
+      "<leader>se",
+      function()
+        Snacks.picker.icons()
+      end,
+      desc = "Search Icons and Emojis",
+    },
   },
   config = function(_, opts)
     require("snacks").setup(opts)
