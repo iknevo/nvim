@@ -19,6 +19,7 @@ return {
         { "<leader>R", group = "rest" },
         { "<leader>s", group = "search" },
         { "<leader>u", group = "ui" },
+        { "<leader>l", group = "Log" },
         { "<leader>x", group = "diagnostics/quickfix" },
         { "[", group = "prev" },
         { "]", group = "next" },
