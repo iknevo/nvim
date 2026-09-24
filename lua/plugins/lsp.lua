@@ -13,9 +13,6 @@ return {
         "lua_ls",
         "vtsls",
         "cssls",
-        "eslint",
-        "html",
-        "jsonls",
         "tailwindcss",
         "basedpyright",
         "ruff",
@@ -55,9 +52,7 @@ return {
       local servers = {
         lua_ls = {},
         svelte = {},
-        oxlint = {
-          cmd = { "bunx", "oxlint", "--lsp" },
-        },
+        oxlint = {},
         cssls = {
           settings = {
             css = {
@@ -83,7 +78,6 @@ return {
 
         tailwindcss = {},
         vtsls = {},
-        dartls = {},
         basedpyright = {},
         ruff = {},
       }
