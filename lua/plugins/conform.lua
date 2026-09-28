@@ -29,6 +29,7 @@ return {
         html = { "prettier" },
         less = { "prettier" },
         scss = { "prettier" },
+        svelte = { "prettier" },
         vue = { "prettier" },
         yaml = { "prettier" },
         rust = { "rustfmt" },

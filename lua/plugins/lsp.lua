@@ -18,6 +18,7 @@ return {
         "ruff",
         "svelte",
         "oxlint",
+        "eslint",
       },
     },
   },
@@ -53,6 +54,7 @@ return {
         lua_ls = {},
         svelte = {},
         oxlint = {},
+        eslint = {},
         cssls = {
           settings = {
             css = {
