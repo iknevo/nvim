@@ -80,9 +80,6 @@ vim.opt.iskeyword:remove("_")
 vim.opt.mouse = "a"
 
 -- vim.opt.clipboard = "unnamedplus"
-vim.schedule(function()
-  vim.opt.clipboard = "unnamedplus"
-end)
 
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300

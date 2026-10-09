@@ -79,6 +79,9 @@ map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- map("i", "jk", "<Esc>")
 
+map({ "n", "x" }, "<leader>y", '"+y', { desc = "Yank to system clipboard" })
+map({ "n", "x" }, "<leader>p", '"+p', { desc = "Paste from system clipboard after" })
+
 -- paste without yank
 map("x", "p", '"_dP', { desc = "Paste Without Yank" })
 
