@@ -85,6 +85,19 @@ return {
   },
   { "nvim-mini/mini.ai", version = "*", opts = {} },
   {
+    "nvim-mini/mini.diff",
+    version = "*",
+    event = { "BufReadPost", "BufNewFile" },
+    opts = {
+      view = { style = "number" },
+      mappings = {
+        goto_prev = "[g",
+        goto_next = "]g",
+      },
+      options = { wrap_goto = true },
+    },
+  },
+  {
     "nvim-mini/mini.icons",
     version = "*",
     opts = {
