@@ -15,7 +15,7 @@ return {
 
     keys = {
       {
-        "<leader>r",
+        "<leader>cl",
         "<cmd>LiveServerToggle<CR>",
         desc = "Live Server Toggle",
       },

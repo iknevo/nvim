@@ -21,6 +21,7 @@ return {
         { "<leader>u", group = "ui" },
         { "<leader>l", group = "Log" },
         { "<leader>x", group = "diagnostics/quickfix" },
+        { "<leader>r", group = "Rest" },
         { "[", group = "prev" },
         { "]", group = "next" },
         { "g", group = "goto" },

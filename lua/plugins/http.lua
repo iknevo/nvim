@@ -22,7 +22,7 @@ return {
     end,
 
     config = function()
-      vim.keymap.set("n", "<leader>r", "<cmd>Rest run<cr>", {
+      vim.keymap.set("n", "<leader>rr", "<cmd>Rest run<cr>", {
         buffer = true,
         desc = "Run HTTP request",
       })

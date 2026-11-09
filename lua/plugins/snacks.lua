@@ -60,14 +60,6 @@ return {
       desc = "Scratch Buffer",
     },
     {
-      "<leader>fl",
-      function()
-        Snacks.picker.buffers({ filter = { name = "scratch" } })
-      end,
-      desc = "Scratch Buffers List",
-    },
-
-    {
       "<leader>gi",
       function()
         Snacks.picker.gh_issue()
