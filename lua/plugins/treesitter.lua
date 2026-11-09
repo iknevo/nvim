@@ -32,6 +32,8 @@ return {
       "vimdoc",
       "xml",
       "yaml",
+      "http",
+      "json",
     })
 
     vim.api.nvim_create_autocmd("FileType", {

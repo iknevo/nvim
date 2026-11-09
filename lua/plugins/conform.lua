@@ -33,6 +33,7 @@ return {
         vue = { "prettier" },
         yaml = { "prettier" },
         rust = { "rustfmt" },
+        http = { "kulala-fmt" },
       },
     },
   },
