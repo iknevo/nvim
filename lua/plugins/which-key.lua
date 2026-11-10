@@ -4,6 +4,7 @@ return {
   opts_extend = { "spec" },
   opts = {
     preset = "helix",
+    delay = 500,
     defaults = {},
     spec = {
       {
