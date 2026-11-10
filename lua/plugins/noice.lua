@@ -7,23 +7,18 @@ return {
 
   opts = {
     cmdline = {
-      enabled = true,
       view = "cmdline",
       format = {
         cmdline = { icon = ":" },
-        search_down = { icon = "/", kind = "search" },
-        search_up = { icon = "/", kind = "search" },
+        lua = false,
+        help = false,
+        filter = false,
       },
     },
 
     messages = {
-      enabled = true,
       view = "mini",
-    },
-
-    popupmenu = {
-      enabled = true,
-      backend = "nui",
+      view_search = false,
     },
 
     notify = {
@@ -42,9 +37,7 @@ return {
     },
 
     presets = {
-      command_palette = true,
       long_message_to_split = true,
-      lsp_doc_border = true,
     },
 
     lsp = {
@@ -52,60 +45,36 @@ return {
         enabled = true,
         view = "mini",
       },
+      hover = { enabled = false },
+      signature = { enabled = false },
+    },
 
-      hover = {
-        enabled = false,
-      },
-
-      signature = {
-        enabled = false,
-      },
-
-      override = {
-        ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
-        ["vim.lsp.util.stylize_markdown"] = false,
-        ["cmp.entry.get_documentation"] = false,
+    views = {
+      mini = {
+        win_options = { winblend = 0 },
       },
     },
 
     routes = {
       {
-        view = "mini",
-        filter = {
-          event = "msg_showmode",
-          find = "recording",
-        },
+        filter = { event = "msg_show", kind = "", find = "written" },
+        opts = { skip = true },
       },
-
+      {
+        filter = { event = "msg_show", find = "%d+L, %d+B" },
+        opts = { skip = true },
+      },
       {
         filter = {
           event = "msg_show",
           kind = "",
-          find = "written",
-        },
-        opts = { skip = true },
-      },
-
-      {
-        filter = {
-          event = "msg_show",
-          find = "%d+L, %d+B",
-        },
-        opts = { skip = true },
-      },
-
-      {
-        filter = {
-          event = "msg_show",
-          find = "lines",
-        },
-        opts = { skip = true },
-      },
-
-      {
-        filter = {
-          event = "notify",
-          find = "No information available",
+          any = {
+            { find = "%d+ more lines" },
+            { find = "%d+ fewer lines" },
+            { find = "%d+ lines yanked" },
+            { find = "%d+ lines [<>]ed" },
+            { find = "%d+ lines moved" },
+          },
         },
         opts = { skip = true },
       },

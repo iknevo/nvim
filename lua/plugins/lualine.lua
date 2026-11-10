@@ -1,6 +1,15 @@
 return {
   "nvim-lualine/lualine.nvim",
-  dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+  event = "VeryLazy",
+  dependencies = {
+    {
+      "nvim-mini/mini.icons",
+      config = function()
+        require("mini.icons").setup()
+        require("mini.icons").mock_nvim_web_devicons()
+      end,
+    },
+  },
   config = function()
     local theme = require("custom.lualine-theme").theme()
 
@@ -20,6 +29,19 @@ return {
             end,
           },
         },
+        lualine_b = {
+          "branch",
+          {
+            "diff",
+            source = function()
+              local gs = vim.b.gitsigns_status_dict
+              if gs then
+                return { added = gs.added, modified = gs.changed, removed = gs.removed }
+              end
+            end,
+          },
+          { "diagnostics", sources = { "nvim_diagnostic" }, update_in_insert = false },
+        },
         lualine_c = {
           {
             "filename",
@@ -34,39 +56,32 @@ return {
         lualine_x = {
           {
             function()
-              local ok, noice = pcall(require, "noice")
-              return ok and noice.statusline and noice.statusline.message() or ""
+              local reg = vim.fn.reg_recording()
+              return reg ~= "" and ("recording @" .. reg) or ""
             end,
             cond = function()
-              local ok, noice = pcall(require, "noice")
-              return ok and noice.statusline and noice.statusline.has("message") or false
+              return vim.fn.reg_recording() ~= ""
             end,
+            color = { fg = "#91E5F6" },
           },
           {
-            function()
-              local ok, noice = pcall(require, "noice")
-              return ok and noice.statusline and noice.statusline.command() or ""
-            end,
-            cond = function()
-              local ok, noice = pcall(require, "noice")
-              return ok and noice.statusline and noice.statusline.has("command") or false
-            end,
+            "filetype",
+            colored = true,
+            icon = { align = "left" },
           },
-          {
-            function()
-              local ok, noice = pcall(require, "noice")
-              return ok and noice.statusline and noice.statusline.mode() or ""
-            end,
-            cond = function()
-              local ok, noice = pcall(require, "noice")
-              return ok and noice.statusline and noice.statusline.has("mode") or false
-            end,
-          },
-          "filetype",
         },
         lualine_y = { "selectioncount" },
         lualine_z = { "searchcount" },
       },
+    })
+
+    vim.api.nvim_create_autocmd({ "RecordingEnter", "RecordingLeave" }, {
+      callback = function()
+        -- schedule so reg_recording() has updated by the time lualine reads it
+        vim.schedule(function()
+          require("lualine").refresh()
+        end)
+      end,
     })
   end,
 }
