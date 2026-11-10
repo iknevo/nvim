@@ -2,6 +2,21 @@ return {
   {
     "rest-nvim/rest.nvim",
     ft = { "http" },
+    build = false,
+
+    dependencies = {
+      "j-hui/fidget.nvim",
+      "nvim-neotest/nvim-nio",
+      "nvim-treesitter/nvim-treesitter",
+      "lunarmodules/lua-mimetypes",
+
+      {
+        "manoelcampos/xml2lua",
+        config = function(plugin)
+          package.path = package.path .. ";" .. plugin.dir .. "/?.lua"
+        end,
+      },
+    },
 
     init = function()
       vim.g.rest_nvim = {
@@ -11,14 +26,6 @@ return {
           },
         },
       }
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = "json",
-        callback = function(ev)
-          vim.bo[ev.buf].formatexpr = ""
-          vim.bo[ev.buf].formatprg = "jq"
-        end,
-      })
     end,
 
     config = function()
