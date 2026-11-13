@@ -111,6 +111,7 @@ return {
         [".env.production"] = { glyph = "󰘮", hl = "MiniIconsYellow" },
         [".env.staging"] = { glyph = "󰘮", hl = "MiniIconsYellow" },
         [".env.test"] = { glyph = "󰘮", hl = "MiniIconsYellow" },
+        [".env.development"] = { glyph = "󰘮", hl = "MiniIconsYellow" },
       },
     },
     config = function(_, opts)
