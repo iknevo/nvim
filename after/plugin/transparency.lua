@@ -20,7 +20,7 @@ end
 local function apply_transparency()
   local groups = {
     -- transparent background
-    "CursorLine",
+    -- "CursorLine",
     "Normal",
     "NormalFloat",
     "FloatBorder",
