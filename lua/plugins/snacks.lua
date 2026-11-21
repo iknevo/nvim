@@ -248,6 +248,8 @@ return {
         },
       },
       indent = { enabled = false },
+      bigfile = { enabled = true },
+      quickfile = { enabled = true },
       scroll = { enabled = false },
       input = { enabled = true },
       words = { enabled = true },
