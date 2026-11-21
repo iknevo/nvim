@@ -26,7 +26,14 @@ return {
     -- blink.cmp 1.x registers its completion capabilities via vim.lsp.config("*") itself
     config = function()
       local servers = {
-        lua_ls = {},
+        lua_ls = {
+          settings = {
+            Lua = {
+              runtime = { version = "LuaJIT" },
+              workspace = { library = { vim.env.VIMRUNTIME } },
+            },
+          },
+        },
         svelte = {},
         oxlint = {},
         eslint = {},
