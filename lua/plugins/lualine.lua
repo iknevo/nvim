@@ -1,6 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
-  event = "VeryLazy",
+  lazy = false,
   dependencies = { "nvim-mini/mini.icons" },
   config = function()
     local theme = require("custom.lualine-theme").theme()
@@ -77,20 +77,6 @@ return {
       })
     end
 
-    local dashboard_open = vim.iter(vim.api.nvim_list_wins()):any(function(win)
-      return vim.bo[vim.api.nvim_win_get_buf(win)].filetype == "snacks_dashboard"
-    end)
-
-    if dashboard_open then
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "SnacksDashboardClosed",
-        once = true,
-        callback = function()
-          vim.schedule(setup)
-        end,
-      })
-    else
-      setup()
-    end
+    setup()
   end,
 }
