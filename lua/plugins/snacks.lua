@@ -158,6 +158,28 @@ return {
       end,
       desc = "Search Icons and Emojis",
     },
+    {
+      "]]",
+      function()
+        Snacks.words.jump(vim.v.count1)
+      end,
+      desc = "Next Reference",
+    },
+    {
+      "[[",
+      function()
+        Snacks.words.jump(-vim.v.count1)
+      end,
+      desc = "Prev Reference",
+    },
+    {
+      "<leader>gB",
+      function()
+        Snacks.gitbrowse()
+      end,
+      mode = { "n", "x" },
+      desc = "Git Browse (open in browser)",
+    },
   },
   config = function(_, opts)
     require("snacks").setup(opts)
@@ -228,6 +250,7 @@ return {
       indent = { enabled = false },
       scroll = { enabled = false },
       input = { enabled = true },
+      words = { enabled = true },
       terminal = {
         win = {
           keys = {

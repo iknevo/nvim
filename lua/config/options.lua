@@ -73,3 +73,5 @@ vim.opt.smoothscroll = true
 vim.opt.spelllang = { "en" }
 
 vim.opt.shortmess:append("I")
+
+vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "globals", "skiprtp", "folds" }
