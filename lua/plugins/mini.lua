@@ -85,19 +85,6 @@ return {
   },
   { "nvim-mini/mini.ai", version = "*", opts = {} },
   {
-    "nvim-mini/mini.diff",
-    version = "*",
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {
-      view = { style = "number" },
-      mappings = {
-        goto_prev = "[g",
-        goto_next = "]g",
-      },
-      options = { wrap_goto = true },
-    },
-  },
-  {
     "nvim-mini/mini.icons",
     version = "*",
     opts = {
@@ -117,20 +104,6 @@ return {
     config = function(_, opts)
       require("mini.icons").setup(opts)
       require("mini.icons").mock_nvim_web_devicons()
-    end,
-  },
-  {
-    "nvim-mini/mini.indentscope",
-    version = "*",
-    enabled = false,
-    config = function()
-      require("mini.indentscope").setup({
-        draw = {
-          delay = 200,
-        },
-        -- symbol = "│",
-        options = { try_as_border = true },
-      })
     end,
   },
   {

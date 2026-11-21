@@ -1,5 +1,6 @@
 return {
   "code-biscuits/nvim-biscuits",
+  event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
   },

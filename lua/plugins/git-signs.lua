@@ -1,6 +1,23 @@
 return {
   "lewis6991/gitsigns.nvim",
+  event = { "BufReadPre", "BufNewFile" },
   opts = {
+    on_attach = function(buf)
+      local gs = require("gitsigns")
+      local function map(mode, lhs, rhs, desc)
+        vim.keymap.set(mode, lhs, rhs, { buffer = buf, desc = desc })
+      end
+      map("n", "]h", function()
+        gs.nav_hunk("next")
+      end, "Next Hunk")
+      map("n", "[h", function()
+        gs.nav_hunk("prev")
+      end, "Prev Hunk")
+      map("n", "<leader>ghs", gs.stage_hunk, "Stage Hunk")
+      map("n", "<leader>ghr", gs.reset_hunk, "Reset Hunk")
+      map("n", "<leader>ghp", gs.preview_hunk, "Preview Hunk")
+      map("n", "<leader>ghb", gs.blame_line, "Blame Line")
+    end,
     signs = {
       add = { text = "+" },
       change = { text = "~" },

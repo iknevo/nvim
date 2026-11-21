@@ -4,7 +4,6 @@ return {
   event = "InsertEnter",
 
   dependencies = {
-    "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
     "folke/lazydev.nvim",
     "xzbdmw/colorful-menu.nvim",
@@ -16,7 +15,7 @@ return {
     },
 
     snippets = {
-      preset = "luasnip",
+      preset = "default",
     },
 
     appearance = {
@@ -148,8 +147,6 @@ return {
   opts_extend = { "sources.default" },
 
   config = function(_, opts)
-    require("luasnip.loaders.from_vscode").lazy_load()
-
     local colorful_menu = require("colorful-menu")
 
     opts.completion.menu.draw.components = {
@@ -171,14 +168,5 @@ return {
     }
 
     require("blink.cmp").setup(opts)
-
-    -- vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = "#6e6a86", bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "BlinkCmpDocSeparator", { bg = "NONE", fg = "#6e6a86" })
-    -- vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { fg = "#6e6a86", bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = "#6e6a86", bg = "NONE" })
-    -- vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#242424" })
-    -- vim.api.nvim_set_hl(0, "BlinkCmpLabel", { fg = "#cecacd" })
-    -- vim.api.nvim_set_hl(0, "BlinkCmpLabelDescription", { fg = "#6e6a86" })
   end,
 }

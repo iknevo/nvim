@@ -133,12 +133,7 @@ return {
     {
       "<leader>ba",
       function()
-        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
-          if vim.api.nvim_buf_is_valid(buf) then
-            vim.api.nvim_buf_delete(buf, { force = true })
-          end
-        end
-        vim.cmd("enew")
+        Snacks.bufdelete.all()
       end,
       desc = "Delete All Buffers",
     },
@@ -304,8 +299,8 @@ return {
           },
           grep = {
             hidden = false,
-            ignored = true,
-            exclude = { "node_modules", ".git", "dist", "build", ".next" },
+            ignored = false,
+            exclude = { "node_modules", "dist", "build", ".next" },
           },
           todo_comments = {
             on_show = function(picker)

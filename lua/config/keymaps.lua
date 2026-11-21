@@ -1,15 +1,21 @@
 local map = vim.keymap.set
--- local opts = { noremap = true, silent = true }
+
+-- Remove Neovim 0.11+ default LSP maps (grr/gra/grn/gri/grt/grx) so the
+-- buffer-local `gr` (references) fires without waiting for timeoutlen
+for _, lhs in ipairs({ "grr", "gra", "grn", "gri", "grt", "grx" }) do
+  pcall(vim.keymap.del, "n", lhs)
+  pcall(vim.keymap.del, "x", lhs)
+end
 
 -- better up/down
 map({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { desc = "Down", expr = true, silent = true })
 map({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { desc = "Up", expr = true, silent = true })
 
 -- Move to window using the <ctrl> hjkl keys
-map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window", remap = true })
-map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
-map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
-map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
+map("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
+map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })
+map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
+map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
 
 -- Resize window
 map("n", "<A-h>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window Width" })
@@ -17,7 +23,7 @@ map("n", "<A-j>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 map("n", "<A-k>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 map("n", "<A-l>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
 
--- Clear search and stop snippet on escape
+-- Clear search on escape
 map("n", "<Esc>", "<Cmd>nohlsearch<CR>", {
   desc = "Clear search highlights",
   silent = true,
@@ -87,25 +93,20 @@ map("x", "p", '"_dP', { desc = "Paste Without Yank" })
 
 -- Toggle spell check
 map("n", "<C-s>", "<cmd>set spell!<cr>", { desc = "Toggle spell check", silent = true })
-map("i", "<C-s>", "<C-O>:set spell!<CR>", { desc = "Toggle spell check", silent = true })
-
--- Spell mutations
-map("n", "zg", "zg", { desc = "Mark word as correct" })
-map("n", "zw", "zw", { desc = "Mark word as incorrect" })
 
 -- better command
 map("n", ";", ":", { desc = "CMD enter command mode" })
 
-map("n", "-", "<C-W>s", { desc = "Split Window Below", remap = true })
-map("n", "=", "<C-W>v", { desc = "Split Window Right", remap = true })
+map("n", "-", "<C-w>s", { desc = "Split Window Below" })
+map("n", "|", "<C-w>v", { desc = "Split Window Right" })
 
 map("n", "<leader>we", "<C-w>=", { desc = "Equalize Windows" })
 map("n", "<leader>wd", "<C-W>c", { desc = "Delete Window" })
 map("n", "<leader>wo", "<C-W>o", { desc = "Only Window" })
 
 -- better scrolling
-map("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down", remap = true })
-map("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up", remap = true })
+map("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
+map("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up" })
 
 map("n", "J", "mzJ`z", { desc = "Join Lines" })
 
@@ -136,7 +137,7 @@ map("n", "<leader>ud", function()
 end, { desc = "Toggle Diagnostics" })
 
 -- toggle line numbers
-vim.keymap.set("n", "<leader>ul", function()
+map("n", "<leader>ul", function()
   local enabled = vim.opt.number:get()
   vim.opt.number = not enabled
   vim.opt.relativenumber = not enabled

@@ -33,8 +33,8 @@ return {
       "xml",
       "yaml",
       "http",
-      "json",
-      "prisma"
+      "prisma",
+      "python",
     })
 
     vim.api.nvim_create_autocmd("FileType", {

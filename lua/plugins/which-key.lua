@@ -5,19 +5,17 @@ return {
   opts = {
     preset = "helix",
     delay = 500,
-    defaults = {},
     spec = {
       {
         mode = { "n", "x" },
-        { "<leader><tab>", group = "tabs" },
-        { "<leader>b", group = "buffer" },
+          { "<leader>b", group = "buffer" },
         { "<leader>c", group = "code" },
         { "<leader>f", group = "file/find" },
         { "<leader>g", group = "git" },
+        { "<leader>gh", group = "hunks" },
         { "<leader>j", group = "package" },
         { "<leader>n", group = "noice" },
         { "<leader>q", group = "quit/session" },
-        { "<leader>R", group = "rest" },
         { "<leader>s", group = "search" },
         { "<leader>u", group = "ui" },
         { "<leader>l", group = "Log" },
@@ -36,28 +34,8 @@ return {
           end,
         },
         { "gx", desc = "Open with system app" },
-        {
-          "<leader>m",
-          group = "multi-cursor",
-          expand = function()
-            return {
-              { "i", desc = "Insert mode" },
-              { "a", desc = "Append mode" },
-              { "e", desc = "Extend mode" },
-              { "c", desc = "Change mode" },
-              { "n", desc = "Next match" },
-              { "N", desc = "Prev match" },
-              { "q", desc = "Skip current" },
-              { "Q", desc = "Skip prev" },
-              { "r", desc = "Replace from clipboard" },
-              { "p", desc = "Put before" },
-              { "P", desc = "Put after" },
-              { "y", desc = "Yank" },
-              { "d", desc = "Delete" },
-              { "<Esc>", desc = "Exit" },
-            }
-          end,
-        },
+        { "zg", desc = "Mark word as correct" },
+        { "zw", desc = "Mark word as incorrect" },
       },
     },
   },
@@ -77,7 +55,4 @@ return {
       desc = "Window Hydra Mode (which-key)",
     },
   },
-  config = function(_, opts)
-    require("which-key").setup(opts)
-  end,
 }

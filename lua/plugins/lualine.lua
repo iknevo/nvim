@@ -1,15 +1,7 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-  dependencies = {
-    {
-      "nvim-mini/mini.icons",
-      config = function()
-        require("mini.icons").setup()
-        require("mini.icons").mock_nvim_web_devicons()
-      end,
-    },
-  },
+  dependencies = { "nvim-mini/mini.icons" },
   config = function()
     local theme = require("custom.lualine-theme").theme()
 

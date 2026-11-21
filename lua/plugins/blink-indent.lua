@@ -1,5 +1,6 @@
 return {
   "saghen/blink.indent",
+  event = { "BufReadPre", "BufNewFile" },
   opts = {
     mappings = {
       border = "both",

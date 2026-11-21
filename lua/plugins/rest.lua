@@ -28,11 +28,8 @@ return {
       }
     end,
 
-    config = function()
-      vim.keymap.set("n", "<leader>rn", "<cmd>Rest run<cr>", {
-        buffer = true,
-        desc = "Run HTTP request",
-      })
-    end,
+    keys = {
+      { "<leader>rn", "<cmd>Rest run<cr>", ft = "http", desc = "Run HTTP request" },
+    },
   },
 }

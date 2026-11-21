@@ -20,14 +20,6 @@ vim.api.nvim_create_autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Highlight when yanking (copying) text",
-  group = augroup("highlight_yank"),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-})
-
 vim.api.nvim_create_autocmd("VimResized", {
   group = augroup("resize_splits"),
   callback = function()
@@ -229,12 +221,6 @@ vim.api.nvim_create_autocmd("FileType", {
       desc = "Remove quickfix item",
     })
   end,
-})
-
-vim.filetype.add({
-  extension = {
-    http = "http",
-  },
 })
 
 vim.api.nvim_create_autocmd("FileType", {

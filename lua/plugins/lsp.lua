@@ -1,14 +1,13 @@
 return {
   {
     "mason-org/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
+    opts = {},
   },
   {
     "mason-org/mason-lspconfig.nvim",
     opts = {
-      auto_install = true,
+      -- only enable the servers listed in nvim-lspconfig below
+      automatic_enable = false,
       ensure_installed = {
         "lua_ls",
         "vtsls",
@@ -24,32 +23,8 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      "xzbdmw/colorful-menu.nvim",
-      "saghen/blink.cmp",
-    },
+    -- blink.cmp 1.x registers its completion capabilities via vim.lsp.config("*") itself
     config = function()
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-      capabilities = vim.tbl_deep_extend(
-        "force",
-        capabilities,
-        require("blink.cmp").get_lsp_capabilities({}, false)
-      )
-
-      capabilities = vim.tbl_deep_extend("force", capabilities, {
-        textDocument = {
-          foldingRange = {
-            dynamicRegistration = false,
-            lineFoldingOnly = true,
-          },
-        },
-      })
-
-      vim.lsp.config("*", {
-        capabilities = capabilities,
-      })
-
       local servers = {
         lua_ls = {},
         svelte = {},
